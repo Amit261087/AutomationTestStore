@@ -1,6 +1,9 @@
 import Registration from '../../POM/Registration';
 import testData from '../fixtures/Data.json';
 
+
+const faker = require('faker')
+
 const registration = new Registration();
 
 describe('Registration', () => {    
@@ -11,7 +14,7 @@ describe('Registration', () => {
         registration.visit();
         registration.enterFirstName(testData.firstName);
         registration.enterLastName(testData.lastName);
-        registration.enterEmail(testData.email);
+        registration.enterEmail(faker.internet.email());
         registration.enterTelephone(testData.telephone);
         registration.enterFax(testData.fax);
         registration.enterCompany(testData.company);
@@ -21,13 +24,23 @@ describe('Registration', () => {
         registration.selectCountry(testData.country);
         registration.selectState(testData.state);
         registration.enterPostal(testData.postal);
+
+        const loginName = faker.internet.userName();
+        const password = testData.password;
+
+        cy.fixture('userCredentials.json').then((credential)=>{
+            credential.loginName = loginName;
+            credential.password = password;
+            cy.writeFile('cypress/fixtures/userCredentials.json', credential)
+        })
         
-        registration.enterLoginName(testData.loginName);
+        registration.enterLoginName(faker.internet.userName());
         registration.enterPassword(testData.password);
         registration.enterConfirmPassword(testData.confirmPassword);
         registration.optForNewsLetter();
         registration.checkPrivacy();
         registration.clickContinueButton();
+        registration.confirmAccountCreation();
     });
     
 });
