@@ -1,0 +1,18 @@
+{
+  "url": "https://automationteststore.com/index.php?rt=account/create",
+  "firstName": "Amit",
+  "lastName": "Sharma",
+  "email": "amitkumar@gmail.com",
+  "telephone": "8600995911",
+  "fax": "1800-111-111",
+  "company": "CG",
+  "address1": "Narayan Peth",
+  "address2": "Pune",
+  "city": "Pune",
+  "state": "Maharashtra",
+  "postal": "411030",
+  "country": "India",
+  "loginName": "Amit261087",
+  "password": "July@2023",
+  "confirmPassword": "July@2023"
+}
