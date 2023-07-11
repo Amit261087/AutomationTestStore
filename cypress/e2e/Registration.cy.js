@@ -34,13 +34,14 @@ describe('Registration', () => {
             cy.writeFile('cypress/fixtures/userCredentials.json', credential)
         })
         
-        registration.enterLoginName(faker.internet.userName());
+        registration.enterLoginName(loginName);
         registration.enterPassword(testData.password);
         registration.enterConfirmPassword(testData.confirmPassword);
         registration.optForNewsLetter();
         registration.checkPrivacy();
         registration.clickContinueButton();
         registration.confirmAccountCreation();
+        registration.clickContinueToFinishRegistration();
     });
     
 });

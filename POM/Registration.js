@@ -19,6 +19,7 @@ class Registration{
     policy = '#AccountFrm_agree';
     continueButton = "button[title='Continue']";
     confirmHeaderText = '.maintext';
+    continueToFinishRegistration = '.mb40 > .btn';
 
     visit(){
         cy.visit('https://automationteststore.com/')
@@ -157,6 +158,10 @@ class Registration{
         cy.get(this.confirmHeaderText)
             .should('be.visible')
             .and('have.text', ' Your Account Has Been Created!')
+    }
+
+    clickContinueToFinishRegistration(){
+        cy.get(this.continueToFinishRegistration).click()
     }
 
 }
