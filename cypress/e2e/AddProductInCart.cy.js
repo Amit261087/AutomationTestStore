@@ -48,11 +48,9 @@ describe('Add Product in Cart', function () {
                     });
             }
         });
-
         cy.get('.dropdown-toggle i')
             .should('be.visible')
             .click()
-
         cy.get("td[class='align_left'] a").each(($el, index, $list) => {
             const text = $el.text()
             if (text == producttobeadded) {

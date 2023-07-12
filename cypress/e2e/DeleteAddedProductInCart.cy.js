@@ -23,11 +23,11 @@ describe('Add Product in Cart', function () {
         cy.get("button[title='Login']")
             .should('be.visible')
             .click();
-
         cy.get('.dropdown-toggle i')
             .should('be.visible')
             .click()
 
+        
         cy.get('.fa.fa-trash-o.fa-fw').each(($el, index, $list) => {
             cy.get('.fa.fa-trash-o.fa-fw').click({ multiple: true })
         })
