@@ -25,11 +25,9 @@ describe('Add Product in Cart', function () {
             .click();
         cy.get('.dropdown-toggle i')
             .should('be.visible')
-            .click()
-
-        
+            .click()        
         cy.get('.fa.fa-trash-o.fa-fw').each(($el, index, $list) => {
             cy.get('.fa.fa-trash-o.fa-fw').click({ multiple: true })
         })
     })
-})    
+})
