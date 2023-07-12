@@ -25,9 +25,15 @@ describe('Add Product in Cart', function () {
             .click();
         cy.get('.dropdown-toggle i')
             .should('be.visible')
-            .click()        
-        cy.get('.fa.fa-trash-o.fa-fw').each(($el, index, $list) => {
-            cy.get('.fa.fa-trash-o.fa-fw').click({ multiple: true })
-        })
+            .click()
+        
+            cy.get('.fa.fa-trash-o.fa-fw').then($element=>{
+                if($element.length>0){
+                    cy.get('.fa.fa-trash-o.fa-fw').click({ multiple: true })
+                }
+            })
+        // cy.get('.fa.fa-trash-o.fa-fw').each(($el, index, $list) => {
+        //     cy.get('.fa.fa-trash-o.fa-fw').click({ multiple: true })
+        // })
     })
 })

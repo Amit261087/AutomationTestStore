@@ -37,6 +37,7 @@ describe('Add Product in Cart', function () {
         cy.get("a[class$='prdocutname']").each(($el, index, $list) => {
             const text = $el.text();
             if (text === producttobeadded) {
+                
                 cy.get('.nostock')
                     .its('length')
                     .then((count) => {
@@ -46,6 +47,7 @@ describe('Add Product in Cart', function () {
                             .eq(adjustedIndex)
                             .click();
                     });
+                
             }
         });
         cy.get('.dropdown-toggle i')
@@ -54,7 +56,7 @@ describe('Add Product in Cart', function () {
         cy.get("td[class='align_left'] a").each(($el, index, $list) => {
             const text = $el.text()
             if (text == producttobeadded) {
-                cy.log('Amit')
+                cy.log('Product is added in Cart successfully')
             }
         })
     });
