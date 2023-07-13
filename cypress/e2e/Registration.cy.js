@@ -1,16 +1,12 @@
 import Registration from '../../POM/Registration';
 import testData from '../fixtures/Data.json';
 
-
 const faker = require('faker')
-
 const registration = new Registration();
 
-describe('Registration', () => {    
-
+describe('Registration', () => {
 
     it.only('Registration', () => {
-
         registration.visit();
         registration.enterFirstName(testData.firstName);
         registration.enterLastName(testData.lastName);
@@ -27,7 +23,6 @@ describe('Registration', () => {
 
         const loginName = faker.internet.userName();
         const password = testData.password;
-
         cy.fixture('userCredentials.json').then((credential)=>{
             credential.loginName = loginName;
             credential.password = password;
@@ -43,5 +38,4 @@ describe('Registration', () => {
         registration.confirmAccountCreation();
         registration.clickContinueToFinishRegistration();
     });
-    
 });
