@@ -20,8 +20,7 @@ describe('Check Profile Details', function(){
         cy.get("div[class='menu_text']").should('be.visible').and('have.text', 'Welcome back Amit')
         cy.get("div[class='menu_text']").trigger('mouseover').then(()=>{
             cy.contains('Edit account details').click()
-            cy.get('.input-group.col-md-4').should('contain', loginName)      
-
+            cy.get('.input-group.col-md-4').first().should('contain', loginName)
         })
     })
 })
