@@ -1,30 +1,28 @@
+import Login from "../../POM/Login";
+
+const login = new Login();
 let loginName;
 let password;
+let firstName;
 
 before(()=>{
     cy.fixture('userCredentials.json').then((credential)=>{
         loginName = Cypress.env('loginName', credential.loginName)
         password = Cypress.env('password', credential.password)
+        firstName = Cypress.env('firstName', credential.firstName)
     })
 })
 
 describe('Login', function(){
 
     it('Login', function(){
-        cy.visit('https://automationteststore.com/index.php?rt=account/login')
-        cy.get('#loginFrm_loginname')
-            .should('be.visible')
-            .type(loginName)
-        cy.get('#loginFrm_password')
-            .should('be.visible')
-            .type(password)
-        cy.get("button[title='Login']")
-            .should('be.visible')
-            .click()
-        cy.get('.maintext')
-            .should('be.visible')
-            .and('have.text', ' My Account')
-            .url()
-            .should('include', 'account/account')
+        cy.visit('https://automationteststore.com/')
+        login.verifyLoginRegisterLink();
+        login.clickLoginRegisterLink();
+        login.verifyAccountLoginPageConfirmationHeader();
+        login.inputLoginName(loginName);
+        login.inputPassword(password);
+        login.clickLoginButton();
+        login.verifyLogin(firstName);
     })
 })

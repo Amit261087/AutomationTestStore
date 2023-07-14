@@ -3,14 +3,35 @@ import testData from '../fixtures/Data.json';
 
 const faker = require('faker')
 const registration = new Registration();
+let firstName;
+let lastName;
+let loginName;
+let email;
+
+
+before(() => {
+    firstName = faker.name.firstName();
+    lastName = faker.name.lastName();
+    loginName = faker.internet.userName();
+    email = faker.internet.email();
+    const password = testData.password;
+    cy.fixture('userCredentials.json').then((credential) => {
+        credential.loginName = loginName;
+        credential.password = password;
+        credential.firstName = firstName;
+        credential.lastName = lastName;
+        credential.email = email;
+        cy.writeFile('cypress/fixtures/userCredentials.json', credential)
+    })
+})
 
 describe('Registration', () => {
 
-    it.only('Registration', () => {
+    it('Registration', () => {
         registration.visit();
-        registration.enterFirstName(testData.firstName);
-        registration.enterLastName(testData.lastName);
-        registration.enterEmail(faker.internet.email());
+        registration.enterFirstName(firstName);
+        registration.enterLastName(lastName);
+        registration.enterEmail(email);
         registration.enterTelephone(testData.telephone);
         registration.enterFax(testData.fax);
         registration.enterCompany(testData.company);
@@ -20,15 +41,6 @@ describe('Registration', () => {
         registration.selectCountry(testData.country);
         registration.selectState(testData.state);
         registration.enterPostal(testData.postal);
-
-        const loginName = faker.internet.userName();
-        const password = testData.password;
-        cy.fixture('userCredentials.json').then((credential)=>{
-            credential.loginName = loginName;
-            credential.password = password;
-            cy.writeFile('cypress/fixtures/userCredentials.json', credential)
-        })
-        
         registration.enterLoginName(loginName);
         registration.enterPassword(testData.password);
         registration.enterConfirmPassword(testData.confirmPassword);
