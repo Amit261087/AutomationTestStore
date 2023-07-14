@@ -7,6 +7,7 @@ let firstName;
 let lastName;
 let loginName;
 let email;
+let password;
 
 
 before(() => {
@@ -14,13 +15,14 @@ before(() => {
     lastName = faker.name.lastName();
     loginName = faker.internet.userName();
     email = faker.internet.email();
-    const password = testData.password;
+    password = faker.internet.password();
     cy.fixture('userCredentials.json').then((credential) => {
         credential.loginName = loginName;
         credential.password = password;
         credential.firstName = firstName;
         credential.lastName = lastName;
         credential.email = email;
+        credential.password = password;
         cy.writeFile('cypress/fixtures/userCredentials.json', credential)
     })
 })
@@ -42,8 +44,8 @@ describe('Registration', () => {
         registration.selectState(testData.state);
         registration.enterPostal(testData.postal);
         registration.enterLoginName(loginName);
-        registration.enterPassword(testData.password);
-        registration.enterConfirmPassword(testData.confirmPassword);
+        registration.enterPassword(password);
+        registration.enterConfirmPassword(password);
         registration.optForNewsLetter();
         registration.checkPrivacy();
         registration.clickContinueButton();

@@ -36,9 +36,6 @@ class Login{
         .url()
         .should('include', 'account/account')
     }
-
-
-
 }
 
 export default Login;
