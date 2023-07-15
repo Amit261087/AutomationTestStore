@@ -8,6 +8,8 @@ class ChangePassword{
     currentPassword = '#PasswordFrm_current_password';
     newPassword = '#PasswordFrm_password';
     newPasswordConfirm = '#PasswordFrm_confirm';
+    continueButton = "button[title='Continue']"
+    confirmPasswordChange = '.alert'
 
     clickLoginRegisterLink()
     {
@@ -54,6 +56,15 @@ class ChangePassword{
     enterNewPasswordConfirm(newPasswordConfirm)
     {
         cy.get(this.newPasswordConfirm).type(newPasswordConfirm)
+    }
+
+    clickContinueButton()
+    {
+        cy.get(this.continueButton).click();
+    }
+
+    verifyPasswordChange(){
+        cy.get(this.confirmPasswordChange).should('be.visible').and('contain', 'Success: Your password has been successfully updated.')
     }
 }
 

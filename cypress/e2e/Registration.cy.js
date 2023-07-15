@@ -9,7 +9,6 @@ let loginName;
 let email;
 let password;
 
-
 before(() => {
     firstName = faker.name.firstName();
     lastName = faker.name.lastName();
