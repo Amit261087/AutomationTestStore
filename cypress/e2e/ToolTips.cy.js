@@ -4,12 +4,11 @@ let password;
 before(() => {
     cy.fixture('userCredentials.json').then((credential) => {
         loginName = credential.loginName;
-        password = credential.password
+        password = credential.password;
     })
 })
 
 describe('Tool Tip', function () {
-
     it('Tool Tip', function () {
         cy.visit('https://automationteststore.com/')
         cy.contains('Login or register').should('be.visible').click();
