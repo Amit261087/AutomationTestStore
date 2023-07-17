@@ -4,8 +4,8 @@ let orderNumber;
 
 before(() => {
     cy.fixture('userCredentials.json').then((credential) => {
-        loginName = Cypress.env('loginName', credential.loginName);
-        password = Cypress.env('password', credential.password);
+        loginName = credential.loginName;
+        password = credential.password;
     });
 });
 

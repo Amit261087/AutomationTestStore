@@ -6,12 +6,11 @@ let email;
 
 before(() => {
     cy.fixture('userCredentials.json').then((credential) => {
-        loginName = Cypress.env('loginName', credential.loginName)
-        password = Cypress.env('password', credential.password)
-        firstName = Cypress.env('firstName', credential.firstName)
-        lastName = Cypress.env('lastName', credential.lastName)
-        email = Cypress.env('email', credential.email)
-
+        loginName = credential.loginName
+        password = credential.password
+        firstName = credential.firstName
+        lastName = credential.lastName
+        email = credential.email
     })
 })
 
