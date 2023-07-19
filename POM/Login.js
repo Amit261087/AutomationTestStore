@@ -35,6 +35,7 @@ class Login{
         cy.get(this.loginConfirmationHeader).should('be.visible').and('have.text', ' My Account')
         .url()
         .should('include', 'account/account')
+        cy.get('.subtext').should('be.visible').and('have.text', `${loginConfirmationText}`)
     }
 }
 

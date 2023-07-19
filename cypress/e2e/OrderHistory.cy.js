@@ -4,12 +4,11 @@ let orderNumber;
 
 before(() => {
     cy.fixture('userCredentials.json').then((credential) => {
-        loginName = Cypress.env('loginName', credential.loginName);
-        password = Cypress.env('password', credential.password);
-        orderNumber = Cypress.env('orderNumber', credential.orderNumber);
+        loginName = credential.loginName;
+        password = credential.password;
+        orderNumber = credential.orderNumber
     });
 });
-
 
 describe('Order History', function () {
 

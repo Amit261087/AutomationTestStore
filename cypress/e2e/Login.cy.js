@@ -7,9 +7,9 @@ let firstName;
 
 before(()=>{
     cy.fixture('userCredentials.json').then((credential)=>{
-        loginName = Cypress.env('loginName', credential.loginName)
-        password = Cypress.env('password', credential.password)
-        firstName = Cypress.env('firstName', credential.firstName)
+        loginName = credential.loginName
+        password = credential.password
+        firstName = credential.firstName
     })
 })
 
