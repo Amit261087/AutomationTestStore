@@ -14,5 +14,10 @@
   "country": "India",
   "loginName": "Amit261087",
   "password": "July@2023",
-  "confirmPassword": "July@2023"
+  "confirmPassword": "July@2023",
+  "productName": [
+        "Eau Parfumee au The Vert Shampoo",
+        "Curls to straight Shampoo",
+        "Pantene Pro-V Conditioner, Classic Care"
+    ]
 }
