@@ -15,9 +15,23 @@
   "loginName": "Amit261087",
   "password": "July@2023",
   "confirmPassword": "July@2023",
-  "productName": [
+  "hairProductName": [
         "Eau Parfumee au The Vert Shampoo",
         "Curls to straight Shampoo",
         "Pantene Pro-V Conditioner, Classic Care"
-    ]
+    ],
+  "makeupProductName": [
+    "Product with stock locations"
+  ],
+  "skincareProductName": [
+    "Creme Precieuse Nuit 50ml",
+    "Absolue Eye Precious Cells",
+    "Total Moisture Facial Cream",
+    "Absolute Anti-Age Spot Replenishing Unifying TreatmentSPF 15"
+  ],
+  "menProductName": [
+    "Dove Men +Care Body Wash",
+    "Men+Care Active Clean Shower Tool",
+    "Men+Care Clean Comfort Deodorant"
+  ]
 }
