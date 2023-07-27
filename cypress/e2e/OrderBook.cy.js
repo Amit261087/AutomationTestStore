@@ -9,8 +9,8 @@ before(() => {
     })
 })
 
-describe('Order Hair Care Products', function () {
-    it('Order Hair Care Products', function () {
+describe('Order Books', function () {
+    it('Order Books', function () {
         cy.visit('https://automationteststore.com/')
         cy.contains('Login or register').should('be.visible').click();
         cy.get('#loginFrm_loginname').should('be.visible').type(loginName);
