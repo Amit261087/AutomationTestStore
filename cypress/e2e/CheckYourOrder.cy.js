@@ -24,8 +24,6 @@ describe('Check Order Details', function () {
         cy.get('#CheckOrderFrm_order_id').type(orderNumber)
         cy.get('#CheckOrderFrm_email').type(email)
         cy.get('.btn.btn-orange.pull-right').click()
-        cy.log(orderNumber)
-        cy.log(email)
 
         cy.contains('Order ID')
             .parent()
